@@ -16,7 +16,7 @@
 		"setup-local": "sh scripts/setup-local.sh"
 	},
 	"lint-staged": {
-		"app/**/*.{ts,tsx}": [
+		"src/**/*.{ts,svelte,html}": [
 			"pnpm run format",
 			"pnpm run lint",
 			"git add -A ."
