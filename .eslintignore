@@ -1,0 +1,5 @@
+entry.*.tsx
+remix.env.d.ts
+root.tsx
+node_modules
+build
