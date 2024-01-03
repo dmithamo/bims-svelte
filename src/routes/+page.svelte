@@ -3,4 +3,4 @@
 </script>
 
 <h2>Bims says Hello world!</h2>
-<p>You are viewing version {version}</p>
+<p class="font-bold">This is version<span class="font-hand">v{version}</span></p>
