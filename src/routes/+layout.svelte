@@ -3,7 +3,11 @@
   import { onMount } from 'svelte';
   import { themeChange } from 'theme-change';
   import Logo from '$lib/components/logo.svelte';
-  import { LogoSize } from '$lib/constants/enums';
+  import Header from '$lib/components/header.svelte';
+  import { LogoSize } from '$lib/utils/enums';
+  import clsx from 'clsx';
+  import { DirectionOption, HEADER_NAV_HEIGHT, HeightOption } from '$lib/utils/styles.utils';
+  import Flex from '$lib/components/flex.svelte';
 
   // NOTE: the element that is using one of the theme attributes must be in the DOM on mount
   onMount(() => {
@@ -12,20 +16,35 @@
   });
 </script>
 
-<div class="relative h-screen w-full">
-  <input class="toggle absolute bottom-1 right-1" data-toggle-theme="emerald,dim" type="checkbox" />
+<Flex direction={DirectionOption.column} height={HeightOption.screen}>
+  <div class={clsx('w-full', HEADER_NAV_HEIGHT)}>
+    <Header />
+  </div>
 
-  <footer class="absolute left-1 top-full w-full bg-gray-300 p-4">
-    <div class="flex w-full justify-between">
-      <div class="opacity-55">
-        <a href="https://icons8.com/icon/8319/mind-map" target="_blank">Mind Map</a> icon by
-        <a href="https://icons8.com" target="_blank">Icons8</a>
-      </div>
-      <div class="flex items-center gap-2">
-        <span>Copyright &copy; 2024</span>
-        <Logo size={LogoSize.SMALL} />
-      </div>
+  <input
+    class="toggle fixed bottom-4 right-4 z-10"
+    data-toggle-theme="emerald,dim"
+    type="checkbox"
+  />
+
+  <div class="w-full flex-1">
+    <slot />
+
+    <div class={clsx('w-full', 'p-12', 'border-t')}>
+      <Flex>
+        <Logo size={LogoSize.MEDIUM} />
+
+        <p class={'text-sm opacity-50'}>
+          <a
+            class={'underline'}
+            href="https://github.com/dmithamo"
+            rel="noreferrer"
+            target="_blank"
+          >
+            &copy;2023 dmithamo | GitHub
+          </a>
+        </p>
+      </Flex>
     </div>
-  </footer>
-  <slot />
-</div>
+  </div>
+</Flex>

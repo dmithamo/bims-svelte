@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { LogoSize } from '$lib/constants/enums';
+  import { LogoSize } from '$lib/utils/enums';
   import clsx from 'clsx';
 
   export let shouldAllowClick = true;
