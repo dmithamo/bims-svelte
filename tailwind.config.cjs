@@ -6,12 +6,19 @@ const config = {
 		extend: {
 			fontFamily: {
 				sans: ['Overpass', 'sans-serif'],
-				hand: ['Allison', 'cursive'],
-			},
+				hand: ['Allison', 'cursive']
+			}
 		}
 	},
 
-	plugins: [require("daisyui")],
+	plugins: [require('daisyui')],
+	daisyui: {
+		themes: [
+			'emerald', // first one will be the default theme
+			// "light",
+			'dim'
+		]
+	}
 };
 
 module.exports = config;
