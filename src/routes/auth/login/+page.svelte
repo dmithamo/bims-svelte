@@ -1,6 +1,6 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
-  import ErrorAlert from '$lib/components/alerts/error.alert.svelte';
+  import ErrorAlert from '$lib/components/alerts/error-alert.svelte';
   import Flex from '$lib/components/flex.svelte';
   import Input from '$lib/components/input.svelte';
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
