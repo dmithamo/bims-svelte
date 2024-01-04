@@ -23,5 +23,5 @@
   )}
   href="/"
 >
-  bsys
+  bims
 </svelte:element>
