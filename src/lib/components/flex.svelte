@@ -25,6 +25,7 @@
   export let marginX: SpacingOption = SpacingOption.default;
   export let marginY: SpacingOption = SpacingOption.default;
   export let gap: GapOption = GapOption.default;
+  export let extraClasses: string = '';
 
   const alignMapping: Record<AlignOption, string> = {
     [AlignOption.start]: 'items-start',
@@ -90,7 +91,8 @@
     paddingXClass,
     paddingYClass,
     marginXClass,
-    marginYClass
+    marginYClass,
+    extraClasses // Figure out how to prevent this from being misused (e.g. 'flex flex-row h-12')
   )}
 >
   <slot />

@@ -6,7 +6,13 @@
   import Header from '$lib/components/header.svelte';
   import { LogoSize } from '$lib/utils/enums';
   import clsx from 'clsx';
-  import { DirectionOption, HEADER_NAV_HEIGHT, HeightOption } from '$lib/utils/styles.utils';
+  import {
+    AlignOption,
+    DirectionOption,
+    HeightOption,
+    JustifyOption,
+    WidthOption
+  } from '$lib/utils/styles.utils';
   import Flex from '$lib/components/flex.svelte';
 
   // NOTE: the element that is using one of the theme attributes must be in the DOM on mount
@@ -17,7 +23,7 @@
 </script>
 
 <Flex direction={DirectionOption.column} height={HeightOption.screen}>
-  <div class={clsx('w-full', HEADER_NAV_HEIGHT)}>
+  <div class={clsx('h-16 w-full')}>
     <Header />
   </div>
 
@@ -29,22 +35,26 @@
 
   <div class="w-full flex-1">
     <slot />
-
-    <div class={clsx('w-full', 'p-12', 'border-t')}>
-      <Flex>
-        <Logo size={LogoSize.MEDIUM} />
-
-        <p class={'text-sm opacity-50'}>
-          <a
-            class={'underline'}
-            href="https://github.com/dmithamo"
-            rel="noreferrer"
-            target="_blank"
-          >
-            &copy;2023 dmithamo | GitHub
-          </a>
-        </p>
-      </Flex>
-    </div>
   </div>
 </Flex>
+<div class={clsx('w-full', 'p-12', 'border-t')} data-theme="dim">
+  <Flex
+    align={AlignOption.center}
+    direction={DirectionOption.column}
+    justify={JustifyOption.around}
+    width={WidthOption.full}
+  >
+    <Logo shouldClickToHome size={LogoSize.MEDIUM} />
+
+    <p class={'text-sm opacity-50'}>
+      <a
+        class="underline underline-offset-2"
+        href="https://github.com/dmithamo"
+        rel="noreferrer"
+        target="_blank"
+      >
+        &copy;2023 dmithamo
+      </a>
+    </p>
+  </Flex>
+</div>

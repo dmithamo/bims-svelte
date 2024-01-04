@@ -1,6 +1,3 @@
-export const HEADER_HEIGHT = 16;
-export const HEADER_NAV_HEIGHT = `h-${HEADER_HEIGHT}`;
-
 export enum JustifyOption {
   start = 'start',
   end = 'end',
@@ -91,12 +88,21 @@ const paddingMapping: Record<SpacingOption, string> = {
   [SpacingOption.default]: ''
 };
 
+const directedPaddingMapping = (direction: 'x' | 'y') => ({
+  [SpacingOption.none]: `p${direction}-0`,
+  [SpacingOption.small]: `p${direction}-1 sm:p${direction}-2`,
+  [SpacingOption.medium]: `p${direction}-2 sm:p${direction}-4`,
+  [SpacingOption.large]: `p${direction}-4 sm:p${direction}-8`,
+  [SpacingOption.maximum]: `p${direction}-8 sm:p${direction}-16`,
+  [SpacingOption.default]: ''
+});
+
 export const getPaddingClass = (padding: SpacingOption): string => paddingMapping[padding];
 export const getPaddingXClass = (padding: SpacingOption): string =>
-  padding === SpacingOption.default ? '' : `px-${paddingMapping[padding].split('-')[1]}`;
+  directedPaddingMapping('x')[padding];
 
 export const getPaddingYClass = (padding: SpacingOption): string =>
-  padding === SpacingOption.default ? '' : `py-${paddingMapping[padding].split('-')[1]}`;
+  directedPaddingMapping('y')[padding];
 
 const marginMapping: Record<SpacingOption, string> = {
   [SpacingOption.none]: 'm-0',

@@ -6,7 +6,8 @@ const config = {
     extend: {
       fontFamily: {
         sans: ['Overpass', 'sans-serif'],
-        hand: ['Allison', 'cursive']
+        hand: ['Allison', 'cursive'],
+        ops: ['Black Ops One', 'system-ui']
       }
     }
   },
