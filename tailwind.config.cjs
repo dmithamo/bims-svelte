@@ -15,9 +15,8 @@ const config = {
   plugins: [require('daisyui')],
   daisyui: {
     themes: [
-      'emerald', // first one will be the default theme
-      // "light",
-      'dim'
+      'lofi', // first one will be the default theme
+      'black'
     ]
   }
 };

@@ -1,11 +1,8 @@
 <script lang="ts">
-  import '../app.pcss';
-  import { onMount } from 'svelte';
-  import { themeChange } from 'theme-change';
-  import Logo from '$lib/components/logo.svelte';
+  import Flex from '$lib/components/flex.svelte';
   import Header from '$lib/components/header.svelte';
+  import Logo from '$lib/components/logo.svelte';
   import { LogoSize } from '$lib/utils/enums';
-  import clsx from 'clsx';
   import {
     AlignOption,
     DirectionOption,
@@ -13,7 +10,10 @@
     JustifyOption,
     WidthOption
   } from '$lib/utils/styles.utils';
-  import Flex from '$lib/components/flex.svelte';
+  import clsx from 'clsx';
+  import { onMount } from 'svelte';
+  import { themeChange } from 'theme-change';
+  import '../app.pcss';
 
   // NOTE: the element that is using one of the theme attributes must be in the DOM on mount
   onMount(() => {
@@ -29,7 +29,7 @@
 
   <input
     class="toggle fixed bottom-4 right-4 z-10"
-    data-toggle-theme="emerald,dim"
+    data-toggle-theme="black,lofi"
     type="checkbox"
   />
 
