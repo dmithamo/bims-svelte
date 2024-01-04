@@ -1,22 +1,44 @@
 <script lang="ts">
+  import ErrorAlert from '$lib/components/alerts/error.alert.svelte';
   import Flex from '$lib/components/flex.svelte';
   import Input from '$lib/components/input.svelte';
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
+  import type { ActionData, PageData } from './$types';
+
+  export let data: PageData;
+  export let form: ActionData;
+
+  console.log({ data, form });
 </script>
 
 <div class="w-full rounded-md border p-8 shadow sm:w-[400px]">
-  <h2 class="pb-8 text-2xl font-bold">Sign in to your account</h2>
-  <form method="POST">
-    <Flex direction={DirectionOption.column} gap={GapOption.large}>
+  <h2 class="py-2 text-2xl font-bold">Sign in to your account</h2>
+
+  <div class="py-4">
+    {#if form?.invalidCredentials && form?.submitted}
+      <ErrorAlert message="Invalid credentials" />
+    {/if}
+  </div>
+
+  <form method="POST" action="?/login">
+    <Flex extraClasses="py-8" direction={DirectionOption.column} gap={GapOption.large}>
       <Input
         label="Email address"
         name="username"
         placeholder="Enter your email address"
-        type="text"
+        type="email"
+        required
+        value={form?.username?.toString() ?? ''}
       />
 
-      <Input label="Password" name="password" placeholder="Enter your password" type="password" />
+      <Input
+        label="Password"
+        name="password"
+        placeholder="Enter your password"
+        type="password"
+        required
+      />
 
       <button class={clsx('btn btn-primary mt-3 w-full uppercase')}>
         <Flex gap={GapOption.medium} align={AlignOption.center}>
@@ -34,10 +56,9 @@
           <span class="text-lg">Sign in</span>
         </Flex>
       </button>
-
-      <a class="text-slate-400 underline underline-offset-4" href="/forgot-password"
-        >Forgot your password?</a
-      >
     </Flex>
   </form>
+  <a class="text-slate-400 underline underline-offset-4" href="/forgot-password"
+    >Forgot your password?</a
+  >
 </div>
