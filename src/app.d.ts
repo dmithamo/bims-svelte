@@ -3,6 +3,7 @@
 declare global {
   type UUID = ReturnType<typeof crypto.randomUUID>;
   type AppErrorCode = 'NOT_FOUND' | 'UNAUTHORIZED' | 'FORBIDDEN';
+  type AppIcon = `carbon:${string}`;
 
   type User = {
     id: UUID;

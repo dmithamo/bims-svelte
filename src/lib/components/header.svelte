@@ -1,8 +1,8 @@
 <script lang="ts">
-  const isAuthenticated = false;
+  const isAuthenticated = true;
+  import Flex from '$lib/components/flex.svelte';
   import Logo from '$lib/components/logo.svelte';
   import { LogoSize } from '$lib/utils/enums';
-  import Flex from '$lib/components/flex.svelte';
   import {
     AlignOption,
     DirectionOption,
@@ -15,10 +15,12 @@
 <Flex
   align={AlignOption.center}
   direction={DirectionOption.row}
-  extraClasses="shadow px-2 sm:px-4"
+  extraClasses="shadow p-3"
   height={HeightOption.full}
   justify={JustifyOption.between}
   width={WidthOption.full}
 >
   <Logo shouldClickToHome={isAuthenticated} size={LogoSize.LARGE} />
+  {#if isAuthenticated}
+    <span class="iconify h-8 w-8" data-icon="carbon:user-avatar-filled"></span>{/if}
 </Flex>
