@@ -15,7 +15,7 @@
 </script>
 
 <Flex direction={DirectionOption.column} gap={GapOption.none} width={WidthOption.full}>
-  <label class="text-sm font-bold" for={name}>{label}</label>
+  <label class="text-xs font-bold" for={name}>{label}</label>
   <input
     class={clsx(
       'w-full p-2',

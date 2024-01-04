@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { enhance } from '$app/forms';
   import ErrorAlert from '$lib/components/alerts/error.alert.svelte';
   import Flex from '$lib/components/flex.svelte';
   import Input from '$lib/components/input.svelte';
@@ -11,15 +12,15 @@
 </script>
 
 <div class="w-full rounded-md border p-8 shadow sm:w-[400px]">
-  <h2 class="py-2 text-2xl font-bold">Sign in to your account</h2>
+  <h2 class="text-2xl font-bold">Sign in to your account</h2>
 
-  <div class="py-4">
+  <div class={clsx('wfull', { 'py-4': form?.invalidCredentials })}>
     {#if form?.invalidCredentials && form?.submitted}
       <ErrorAlert message="Invalid credentials" />
     {/if}
   </div>
 
-  <form method="POST" action="?/login">
+  <form method="POST" action="?/login" use:enhance>
     <Flex extraClasses="py-8" direction={DirectionOption.column} gap={GapOption.large}>
       <Input
         label="Email address"
@@ -44,14 +45,14 @@
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            class="h-6 w-6"
+            class="h-4 w-4"
           >
             <path
               d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z"
             />
           </svg>
 
-          <span class="text-lg">Sign in</span>
+          <span class="">Sign in</span>
         </Flex>
       </button>
     </Flex>

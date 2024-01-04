@@ -8,6 +8,9 @@ const config = {
         sans: ['Overpass', 'sans-serif'],
         hand: ['Allison', 'cursive'],
         ops: ['Black Ops One', 'system-ui']
+      },
+      fontSize: {
+        base: '12px'
       }
     }
   },
