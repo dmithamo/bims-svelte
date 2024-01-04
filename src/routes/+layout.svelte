@@ -33,7 +33,7 @@
     type="checkbox"
   />
 
-  <div class="w-full flex-1">
+  <div class="w-full flex-1 p-6">
     <slot />
   </div>
 </Flex>

@@ -11,7 +11,6 @@
 <Flex
   align={AlignOption.center}
   direction={DirectionOption.column}
-  extraClasses="py-4 sm:py-8"
   justify={JustifyOption.center}
   width={WidthOption.full}
 >
