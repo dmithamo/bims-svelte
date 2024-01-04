@@ -1,7 +1,7 @@
 <script lang="ts">
   import Flex from '$lib/components/flex.svelte';
-  import { DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import Input from '$lib/components/input.svelte';
+  import { DirectionOption, GapOption } from '$lib/utils/styles.utils';
 </script>
 
 <div class="w-full rounded p-4 py-8 shadow sm:w-[400px]">
