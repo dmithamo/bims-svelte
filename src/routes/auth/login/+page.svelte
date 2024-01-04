@@ -8,8 +8,6 @@
 
   export let data: PageData;
   export let form: ActionData;
-
-  console.log({ data, form });
 </script>
 
 <div class="w-full rounded-md border p-8 shadow sm:w-[400px]">

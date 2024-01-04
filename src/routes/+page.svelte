@@ -5,8 +5,8 @@
 
 <div class="flex h-full w-full flex-col items-center justify-center">
   <div class="m-auto flex flex-col">
-    <Logo />
+    <Logo shouldClickToHome={false} />
     <hr class="my-4" />
-    <p class="font-bold">This is version<span class="font-hand">v{version}</span></p>
+    <p class="font-bold">v{version}</p>
   </div>
 </div>
