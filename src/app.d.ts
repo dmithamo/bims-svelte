@@ -8,11 +8,16 @@ declare global {
     interface Error {
       code: AppErrorCode;
     }
+
     interface Locals {
       user: SessionUser;
     }
+
     // interface PageData {}
-    // interface PageState {}
+    interface PageState {
+      showModal: boolean;
+    }
+
     // interface Platform {}
   }
 }

@@ -1,31 +1,31 @@
 <script lang="ts">
   import BottomNav from '$lib/components/bottom-nav.svelte';
   import type { NavItem } from '$lib/utils/bims.types';
-  import { AppRoute } from '$lib/utils/enums';
+  import { AppIcon, AppRoute } from '$lib/utils/enums';
 
   const sidebarItems: NavItem[] = [
     {
       path: AppRoute.moneyOverview,
       label: 'Overview',
-      icon: 'carbon:wallet',
+      icon: AppIcon.moneyOverview,
       permissions: ['money:read']
     },
     {
       path: AppRoute.moneyBudget,
       label: 'Budget',
-      icon: 'carbon:diagram',
+      icon: AppIcon.moneyBudget,
       permissions: ['money:budget:read']
     },
     {
       path: AppRoute.moneyTransactions,
       label: 'Transactions',
-      icon: 'carbon:change-catalog',
+      icon: AppIcon.moneyTransactions,
       permissions: ['money:transactions:read']
     },
     {
       path: AppRoute.moneySettings,
       label: 'Settings',
-      icon: 'carbon:settings',
+      icon: AppIcon.settings,
       permissions: ['money:settings:read']
     }
   ];

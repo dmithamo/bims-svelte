@@ -1,38 +1,26 @@
 <script lang="ts">
-  import { pushState } from '$app/navigation';
+  import { page } from '$app/stores';
   import Flex from '$lib/components/flex.svelte';
+  import HeaderMenu from '$lib/components/header-menu.svelte';
   import Logo from '$lib/components/logo.svelte';
-  import { LogoSize } from '$lib/utils/enums';
+  import type { App, SessionUser } from '$lib/utils/bims.types';
   import {
     AlignOption,
-    defaultIconSize,
     DirectionOption,
     GapOption,
     HeightOption,
     JustifyOption,
-    WidthOption
+    WidthOption,
+    defaultIconSize
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-  import type { App, SessionUser } from '$lib/utils/bims.types';
 
-  export let sessionUser: SessionUser | null = null;
-  export let appVersion: string | null = null;
+  export let sessionUser: SessionUser;
+  export let appVersion: string;
   export let allowedAppList: App[] = [];
 
-  function showModal(modalId: 'notifications' | 'userProfile') {
-    pushState('', {
-      modal: modalId
-    });
-  }
-
-  console.log(showModal);
+  const activeApp = allowedAppList.find((app) => $page.url.toString().endsWith(app.path));
 </script>
-
-{#if !sessionUser}
-  <header class="h-full w-full p-3 shadow">
-    <Logo />
-  </header>
-{/if}
 
 {#if sessionUser}
   <Flex
@@ -43,23 +31,25 @@
     justify={JustifyOption.between}
     width={WidthOption.full}
   >
-    <Logo shouldClickToHome={!!sessionUser} size={LogoSize.LARGE} />
+    {#if activeApp}
+      <Flex
+        align={AlignOption.center}
+        direction={DirectionOption.row}
+        gap={GapOption.minimum}
+        justify={JustifyOption.start}
+        extraClasses="font-bold text-orange-600"
+      >
+        <span class={clsx('iconify', defaultIconSize)} data-icon={activeApp.icon} />
+        <span class="text-xl font-bold">{activeApp.name}</span>
+      </Flex>
+    {:else}
+      <Logo shouldClickToHome={!!sessionUser} />
+    {/if}
 
-    <Flex align={AlignOption.center} gap={GapOption.large}>
-      <span
-        class={clsx(
-          'iconify drawer-button cursor-pointer opacity-75 hover:opacity-100',
-          defaultIconSize
-        )}
-        data-icon="carbon:notification-filled"
-      ></span>
-      <span
-        class={clsx(
-          'iconify drawer-button cursor-pointer opacity-75 hover:opacity-100',
-          defaultIconSize
-        )}
-        data-icon="carbon:user-avatar-filled"
-      ></span>
-    </Flex>
+    <HeaderMenu {appVersion} {sessionUser} />
   </Flex>
+{:else}
+  <header class="h-full w-full p-3 shadow">
+    <Logo />
+  </header>
 {/if}

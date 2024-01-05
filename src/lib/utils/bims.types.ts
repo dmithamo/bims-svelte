@@ -1,4 +1,4 @@
-import type { AppRoute } from './enums';
+import { AppIcon, type AppRoute } from './enums';
 
 export type NavItem = {
   label: string;
@@ -8,7 +8,6 @@ export type NavItem = {
 };
 
 export type UUID = ReturnType<typeof crypto.randomUUID>;
-export type AppIcon = `carbon:${string}`;
 
 export type App = {
   id: UUID;
