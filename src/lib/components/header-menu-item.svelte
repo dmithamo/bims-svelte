@@ -16,7 +16,11 @@
     align={AlignOption.center}
     direction={DirectionOption.row}
     extraClasses={clsx({
-      'text-orange-500 font-bold': pathIsActive({ path, currentPath: $page.url.toString() })
+      'text-orange-500 font-bold': pathIsActive({
+        path,
+        currentPath: $page.url.pathname,
+        exact: false
+      })
     })}
     gap={GapOption.medium}
   >

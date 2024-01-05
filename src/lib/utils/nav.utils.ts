@@ -1,7 +1,9 @@
 export const pathIsActive = ({
   path,
-  currentPath
+  currentPath,
+  exact = true
 }: {
   path: string;
   currentPath: string;
-}): boolean => currentPath.endsWith(path);
+  exact?: boolean;
+}): boolean => (exact ? currentPath.endsWith(path) : currentPath.startsWith(path));
