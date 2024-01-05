@@ -119,3 +119,5 @@ export const getMarginXClass = (margin: SpacingOption): string =>
 
 export const getMarginYClass = (margin: SpacingOption): string =>
   margin === SpacingOption.default ? '' : `my-${marginMapping[margin].split('-')[1]}`;
+
+export const defaultIconSize = 'w-5 h-5';

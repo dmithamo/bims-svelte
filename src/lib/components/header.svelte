@@ -1,15 +1,28 @@
 <script lang="ts">
-  const isAuthenticated = true;
+  import { pushState } from '$app/navigation';
   import Flex from '$lib/components/flex.svelte';
   import Logo from '$lib/components/logo.svelte';
   import { LogoSize } from '$lib/utils/enums';
   import {
     AlignOption,
+    defaultIconSize,
     DirectionOption,
+    GapOption,
     HeightOption,
     JustifyOption,
     WidthOption
   } from '$lib/utils/styles.utils';
+  import clsx from 'clsx';
+
+  export let isAuthenticated = true;
+
+  function showModal(modalId: 'notifications' | 'userProfile') {
+    pushState('', {
+      modal: modalId
+    });
+  }
+
+  console.log(showModal);
 </script>
 
 <Flex
@@ -22,5 +35,21 @@
 >
   <Logo shouldClickToHome={isAuthenticated} size={LogoSize.LARGE} />
   {#if isAuthenticated}
-    <span class="iconify h-8 w-8" data-icon="carbon:user-avatar-filled"></span>{/if}
+    <Flex align={AlignOption.center} gap={GapOption.large}>
+      <span
+        class={clsx(
+          'iconify drawer-button cursor-pointer opacity-75 hover:opacity-100',
+          defaultIconSize
+        )}
+        data-icon="carbon:notification-filled"
+      ></span>
+      <span
+        class={clsx(
+          'iconify drawer-button cursor-pointer opacity-75 hover:opacity-100',
+          defaultIconSize
+        )}
+        data-icon="carbon:user-avatar-filled"
+      ></span>
+    </Flex>
+  {/if}
 </Flex>
