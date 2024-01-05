@@ -16,7 +16,7 @@
     align={AlignOption.center}
     direction={DirectionOption.row}
     extraClasses={clsx({
-      'text-orange-500 font-bold': pathIsActive({
+      'text-orange-600 font-bold': pathIsActive({
         path,
         currentPath: $page.url.pathname,
         exact: false

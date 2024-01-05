@@ -13,7 +13,7 @@
   export let form: ActionData;
 </script>
 
-<div class="w-full rounded-md border p-8 shadow sm:w-[400px]">
+<div class="w-full rounded-md border p-8 shadow-md sm:w-[400px]">
   <h2 class="text-2xl font-bold">Sign in to your account</h2>
 
   <div class={clsx('wfull', { 'py-4': form?.invalidCredentials })}>

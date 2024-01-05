@@ -17,10 +17,7 @@ const config = {
 
   plugins: [require('daisyui')],
   daisyui: {
-    themes: [
-      'lofi', // first one will be the default theme
-      'black'
-    ]
+    themes: ['lemonade']
   }
 };
 

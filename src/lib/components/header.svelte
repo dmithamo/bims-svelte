@@ -42,7 +42,7 @@
         direction={DirectionOption.row}
         gap={GapOption.medium}
         justify={JustifyOption.start}
-        extraClasses="font-bold text-orange-600"
+        extraClasses="font-bold"
       >
         <span role="button" tabindex={0} on:click={() => history.back()}>
           <span

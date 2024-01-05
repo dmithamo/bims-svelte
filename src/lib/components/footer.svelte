@@ -20,6 +20,4 @@
     </a>
     <p>This is version <span class="underline underline-offset-2">{appVersion}</span></p>
   </nav>
-
-  <input class="toggle" data-toggle-theme="black,lofi" type="checkbox" />
 </footer>
