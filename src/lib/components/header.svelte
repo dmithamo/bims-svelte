@@ -13,9 +13,11 @@
     WidthOption
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-  import type { SessionUser } from '$lib/utils/bims.types';
+  import type { App, SessionUser } from '$lib/utils/bims.types';
 
   export let sessionUser: SessionUser | null = null;
+  export let appVersion: string | null = null;
+  export let allowedAppList: App[] = [];
 
   function showModal(modalId: 'notifications' | 'userProfile') {
     pushState('', {
@@ -26,16 +28,23 @@
   console.log(showModal);
 </script>
 
-<Flex
-  align={AlignOption.center}
-  direction={DirectionOption.row}
-  extraClasses="shadow p-3"
-  height={HeightOption.full}
-  justify={JustifyOption.between}
-  width={WidthOption.full}
->
-  <Logo shouldClickToHome={!!sessionUser} size={LogoSize.LARGE} />
-  {#if sessionUser}
+{#if !sessionUser}
+  <header class="h-full w-full p-3 shadow">
+    <Logo />
+  </header>
+{/if}
+
+{#if sessionUser}
+  <Flex
+    align={AlignOption.center}
+    direction={DirectionOption.row}
+    extraClasses="shadow p-3"
+    height={HeightOption.full}
+    justify={JustifyOption.between}
+    width={WidthOption.full}
+  >
+    <Logo shouldClickToHome={!!sessionUser} size={LogoSize.LARGE} />
+
     <Flex align={AlignOption.center} gap={GapOption.large}>
       <span
         class={clsx(
@@ -52,5 +61,5 @@
         data-icon="carbon:user-avatar-filled"
       ></span>
     </Flex>
-  {/if}
-</Flex>
+  </Flex>
+{/if}
