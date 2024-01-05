@@ -6,13 +6,18 @@ export enum LogoSize {
 
 export enum AppRoute {
   login = '/auth/login',
+  logout = '/auth/logout',
   moneyOverview = '/money',
   moneyBudget = '/money/budget',
   moneyTransactions = '/money/transactions',
   moneySettings = '/money/settings',
   notifications = '/notifications',
-  preferences = '/preferences',
-  profile = '/profile'
+  globalSettings = '/settings',
+  profile = '/profile',
+  timelinesOverview = '/timelines',
+  timelinesSettings = '/timelines/settings',
+  assetsOverview = '/assets',
+  assetsSettings = '/assets/settings'
 }
 
 export enum AppErrorCode {
@@ -22,11 +27,16 @@ export enum AppErrorCode {
 }
 
 export enum AppIcon {
-  moneyOverview = 'carbon:wallet',
-  moneyBudget = 'carbon:diagram',
-  moneyTransactions = 'carbon:change-catalog',
-  settings = 'carbon:settings',
-  notifications = 'carbon:notification-filled',
-  userAvatar = 'carbon:user-avatar-filled',
-  close = 'carbon:close'
+  moneyOverview = 'solar:wallet-2-outline',
+  moneyBudget = 'solar:pie-chart-2-broken',
+  moneyTransactions = 'solar:clipboard-list-outline',
+  settings = 'solar:settings-outline',
+  notifications = 'solar:bell-outline',
+  userAvatar = 'solar:user-circle-outline',
+  close = 'carbon:close',
+  login = 'uiw:login',
+  logout = 'uiw:logout',
+  id = 'solar:user-id-outline',
+  timelinesOverview = 'solar:calendar-outline',
+  assetsOverview = 'solar:safe-square-outline'
 }

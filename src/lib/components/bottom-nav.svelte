@@ -1,12 +1,17 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import type { NavItem } from '$lib/utils/bims.types';
-  import { AlignOption, GapOption, defaultIconSize } from '$lib/utils/styles.utils';
+  import { AlignOption, defaultIconSize, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
   import Flex from './flex.svelte';
+  import { pathIsActive } from '$lib/utils/nav.utils';
 
   export let navItems: NavItem[] = [];
-  const isActive = (path: string) => $page.url.toString().endsWith(path);
+  const isActive = (path: string) =>
+    pathIsActive({
+      path,
+      currentPath: $page.url.toString()
+    });
 </script>
 
 {#if navItems.length > 0}

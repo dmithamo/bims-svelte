@@ -6,6 +6,8 @@
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
   import type { ActionData, PageData } from './$types';
+  import { AppIcon } from '$lib/utils/enums';
+  import { defaultIconSize } from '$lib/utils/styles.utils.js';
 
   export let data: PageData;
   export let form: ActionData;
@@ -20,14 +22,14 @@
     {/if}
   </div>
 
-  <form method="POST" action="?/login" use:enhance>
-    <Flex extraClasses="py-8" direction={DirectionOption.column} gap={GapOption.large}>
+  <form action="?/login" method="POST" use:enhance>
+    <Flex direction={DirectionOption.column} extraClasses="py-8" gap={GapOption.large}>
       <Input
         label="Email address"
         name="username"
         placeholder="Enter your email address"
-        type="email"
         required
+        type="email"
         value={form?.username?.toString() ?? ''}
       />
 
@@ -35,13 +37,13 @@
         label="Password"
         name="password"
         placeholder="Enter your password"
-        type="password"
         required
+        type="password"
       />
 
       <button class={clsx('btn btn-primary mt-3 w-full uppercase')}>
-        <Flex gap={GapOption.medium} align={AlignOption.center}>
-          <span class="iconify h-5 w-5" data-icon="uiw:login"></span>
+        <Flex align={AlignOption.center} gap={GapOption.medium}>
+          <span class={clsx('iconify', defaultIconSize)} data-icon={AppIcon.login} />
 
           <span class="">Sign in</span>
         </Flex>

@@ -6,12 +6,12 @@
   import type { App, SessionUser } from '$lib/utils/bims.types';
   import {
     AlignOption,
+    defaultIconSize,
     DirectionOption,
     GapOption,
     HeightOption,
     JustifyOption,
-    WidthOption,
-    defaultIconSize
+    WidthOption
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
 
@@ -46,7 +46,7 @@
       <Logo shouldClickToHome={!!sessionUser} />
     {/if}
 
-    <HeaderMenu {appVersion} {sessionUser} />
+    <HeaderMenu {appVersion} {sessionUser} {allowedAppList} />
   </Flex>
 {:else}
   <header class="h-full w-full p-3 shadow">

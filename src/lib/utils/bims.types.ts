@@ -13,7 +13,7 @@ export type App = {
   id: UUID;
   name: string;
   icon: AppIcon;
-  path: string;
+  path: AppRoute;
   permissions: Permission[]; // Minimum permissions required to access the app's root route
   description?: string;
 };

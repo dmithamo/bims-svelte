@@ -14,19 +14,18 @@
   import clsx from 'clsx';
   import { page } from '$app/stores';
   import SessionUserView from '$lib/components/session-user-view.svelte';
+  import HeaderMenuItem from '$lib/components/header-menu-item.svelte';
 
   export let allowedAppList: App[] = [];
   export let appVersion: string = '';
   export let sessionUser: SessionUser;
 
   const topHeaderLinks: { path: AppRoute; label: string; icon: AppIcon }[] = [
-    { path: AppRoute.notifications, label: 'notifications', icon: AppIcon.notifications },
-    { path: AppRoute.preferences, label: 'preferences', icon: AppIcon.notifications }
+    { path: AppRoute.profile, label: 'profile', icon: AppIcon.id },
+    { path: AppRoute.notifications, label: 'notifications', icon: AppIcon.notifications }
   ];
 
   const showModal = () => {
-    console.log($page.state.showModal, '<<<MODL');
-
     pushState('', {
       showModal: true
     });
@@ -62,35 +61,25 @@
         />
       </span>
     </Flex>
-
-    <Flex direction={DirectionOption.column} gap={GapOption.medium} marginY={SpacingOption.large}
-    ></Flex>
+    <Flex direction={DirectionOption.column} gap={GapOption.medium} marginY={SpacingOption.large}>
+      {#each allowedAppList as app (app.path)}
+        <HeaderMenuItem path={app.path} label={app.name} icon={app.icon} />
+      {/each}
+    </Flex>
 
     <hr class={'my-4'} />
 
     <Flex direction={DirectionOption.column} gap={GapOption.medium} marginY={SpacingOption.large}>
-      {#each allowedAppList as app (app.path)}{/each}
+      {#each topHeaderLinks as headerLink (headerLink.path)}
+        <HeaderMenuItem path={headerLink.path} label={headerLink.label} icon={headerLink.icon} />
+      {/each}
     </Flex>
 
     <hr class={'my-4'} />
 
     <Flex direction={DirectionOption.column} gap={GapOption.large} marginY={SpacingOption.large}>
-      <Flex align={AlignOption.center} direction={DirectionOption.row} gap={GapOption.medium}>
-        <span class={clsx('iconify ', 'h-8 w-8 sm:h-10 sm:w-10')} data-icon={AppIcon.userAvatar} />
-        <span>v-{appVersion}</span>
-      </Flex>
-
-      <form method={'post'}>
-        <button class={clsx('border-0 bg-transparent outline-0')}>
-          <Flex align={AlignOption.center} direction={DirectionOption.row} gap={GapOption.medium}>
-            <span
-              class={clsx('iconify ', 'h-8 w-8 sm:h-10 sm:w-10')}
-              data-icon={AppIcon.userAvatar}
-            />
-            <span>Logout</span>
-          </Flex>
-        </button>
-      </form>
+      <HeaderMenuItem path={AppRoute.globalSettings} label={'settings'} icon={AppIcon.settings} />
+      <HeaderMenuItem path={AppRoute.logout} label={'logout'} icon={AppIcon.logout} />
     </Flex>
   </div>
 {/if}
