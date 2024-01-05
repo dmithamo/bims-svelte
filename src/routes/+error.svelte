@@ -9,9 +9,10 @@
     JustifyOption,
     WidthOption
   } from '$lib/utils/styles.utils';
+  import { AppErrorCode } from '$lib/utils/enums';
 </script>
 
-{#if $page?.error?.code === 'NOT_FOUND'}
+{#if $page?.error?.code === AppErrorCode.NOT_FOUND}
   <Flex
     direction={DirectionOption.column}
     align={AlignOption.center}

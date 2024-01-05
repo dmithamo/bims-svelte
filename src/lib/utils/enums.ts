@@ -14,5 +14,6 @@ export enum AppRoute {
 
 export enum AppErrorCode {
   'NOT_FOUND' = 'NOT_FOUND',
-  'GENERIC_ERROR' = 'GENERIC_ERROR'
+  'GENERIC_ERROR' = 'GENERIC_ERROR',
+  'UNAUTHORIZED' = 'UNAUTHORIZED'
 }

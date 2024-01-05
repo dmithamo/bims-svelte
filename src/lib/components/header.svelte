@@ -13,8 +13,9 @@
     WidthOption
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
+  import type { SessionUser } from '$lib/utils/bims.types';
 
-  export let isAuthenticated = true;
+  export let sessionUser: SessionUser | null = null;
 
   function showModal(modalId: 'notifications' | 'userProfile') {
     pushState('', {
@@ -33,8 +34,8 @@
   justify={JustifyOption.between}
   width={WidthOption.full}
 >
-  <Logo shouldClickToHome={isAuthenticated} size={LogoSize.LARGE} />
-  {#if isAuthenticated}
+  <Logo shouldClickToHome={!!sessionUser} size={LogoSize.LARGE} />
+  {#if sessionUser}
     <Flex align={AlignOption.center} gap={GapOption.large}>
       <span
         class={clsx(
