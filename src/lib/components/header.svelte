@@ -21,7 +21,8 @@
   $: activeApp = allowedAppList.find((app) =>
     pathIsActive({
       path: app.path,
-      currentPath: $page.url.pathname
+      currentPath: $page.url.pathname,
+      exact: false
     })
   );
 </script>
