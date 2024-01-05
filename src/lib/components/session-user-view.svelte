@@ -33,7 +33,7 @@
 
         {#if isDetailedView}
           <span> &#8901; </span>
-          <span class={'text-xs'}>{sessionUser.email}</span>
+          <span class={''}>{sessionUser.email}</span>
         {/if}
       </div>
     </Flex>

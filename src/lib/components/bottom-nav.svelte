@@ -25,7 +25,7 @@
       <a
         href={path}
         class={clsx('text-base opacity-55', {
-          'font-bold text-orange-600 opacity-100': isActive(path)
+          'font-bold text-orange-600 opacity-90': isActive(path)
         })}
       >
         <Flex
