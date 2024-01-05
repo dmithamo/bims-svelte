@@ -20,12 +20,12 @@
   {/if}
 
   <div
-    class={clsx('hidden text-gray-500 lg:block', {
+    class={clsx('hidden lg:block', {
       'block sm:block': isDetailedView
     })}
   >
     <Flex direction={DirectionOption.column} gap={GapOption.none}>
-      <div class={'capitalize text-primary'}>{sessionUser.name}</div>
+      <div class={'capitalize'}>{sessionUser.name}</div>
       <div class={''}>
         <span class={'capitalize'}>{sessionUser.role.name}</span>
         <span> &#8901; </span>

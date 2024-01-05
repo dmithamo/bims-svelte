@@ -1,1 +1,5 @@
-<div>This is the money index page</div>
+<script lang="ts">
+  import Temp from '$lib/components/temp.svelte';
+</script>
+
+<Temp />

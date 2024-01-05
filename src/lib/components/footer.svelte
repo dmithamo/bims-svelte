@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
   import { LogoSize } from '../utils/enums';
   import Logo from './logo.svelte';
+
+  const appVersion = import.meta.env.VITE_APP_VERSION;
 </script>
 
 <footer class="footer absolute top-full bg-base-200 p-6 text-xs text-base-content">
@@ -16,6 +18,7 @@
     <a class="link-hover link" href="https://github.com/dmithamo" rel="noreferrer" target="_blank">
       &copy;2024 dmithamo
     </a>
+    <p>This is version <span class="underline underline-offset-2">{appVersion}</span></p>
   </nav>
 
   <input class="toggle" data-toggle-theme="black,lofi" type="checkbox" />

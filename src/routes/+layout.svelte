@@ -2,20 +2,18 @@
   import Flex from '$lib/components/flex.svelte';
   import Header from '$lib/components/header.svelte';
   import type { App, SessionUser } from '$lib/utils/bims.types';
+  import { AppIcon, AppRoute } from '$lib/utils/enums';
   import { DirectionOption, HeightOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
   import { onMount } from 'svelte';
   import { themeChange } from 'theme-change';
   import '../app.pcss';
-  import { AppIcon, AppRoute } from '$lib/utils/enums';
 
   // NOTE: the element that is using one of the theme attributes must be in the DOM on mount
   onMount(() => {
     themeChange(false);
     // 👆 false parameter is required for svelte
   });
-
-  const appVersion = import.meta.env.VITE_APP_VERSION;
 
   const sessionUser: SessionUser | null = {
     id: crypto.randomUUID(),
@@ -59,10 +57,10 @@
 
 <Flex direction={DirectionOption.column} height={HeightOption.screen}>
   <div class={clsx('h-16 w-full')}>
-    <Header {allowedAppList} {appVersion} {sessionUser} />
+    <Header {allowedAppList} {sessionUser} />
   </div>
 
-  <div class="relative w-full flex-1 p-3">
+  <div class="relative w-full flex-1">
     <slot />
   </div>
 </Flex>

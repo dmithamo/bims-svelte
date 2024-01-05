@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { pushState } from '$app/navigation';
   import Flex from '$lib/components/flex.svelte';
   import type { App, SessionUser } from '$lib/utils/bims.types';
   import { AppIcon, AppRoute } from '$lib/utils/enums';
@@ -15,9 +14,9 @@
   import { page } from '$app/stores';
   import SessionUserView from '$lib/components/session-user-view.svelte';
   import HeaderMenuItem from '$lib/components/header-menu-item.svelte';
+  import { pushState } from '$app/navigation';
 
   export let allowedAppList: App[] = [];
-  export let appVersion: string = '';
   export let sessionUser: SessionUser;
 
   const topHeaderLinks: { path: AppRoute; label: string; icon: AppIcon }[] = [
@@ -42,7 +41,7 @@
       'absolute right-0 top-0',
       'w-full sm:w-[25rem]',
       'flex flex-col gap-6',
-      'bg-white p-8 shadow',
+      'bg-white p-8 shadow-md',
       'z-10'
     )}
   >
