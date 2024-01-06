@@ -16,7 +16,7 @@
 <div class="w-full rounded-md border p-8 shadow-md sm:w-[400px]">
   <h2 class="text-2xl font-bold">Sign in to your account</h2>
 
-  <div class={clsx('wfull', { 'py-4': form?.invalidCredentials })}>
+  <div class={clsx('w-full', { 'py-4': form?.invalidCredentials })}>
     {#if form?.invalidCredentials && form?.submitted}
       <ErrorAlert message="Invalid credentials" />
     {/if}

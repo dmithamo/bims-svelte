@@ -10,12 +10,17 @@ const config = {
         ops: ['Black Ops One', 'system-ui']
       },
       fontSize: {
-        base: '12px'
+        base: '11px'
       }
     }
   },
 
-  plugins: [require('daisyui')],
+  plugins: [
+    require('daisyui'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio')
+  ],
   daisyui: {
     themes: ['lemonade']
   }
