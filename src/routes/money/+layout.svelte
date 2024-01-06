@@ -25,7 +25,7 @@
     {
       path: AppRoute.moneySettings,
       label: 'Settings',
-      icon: AppIcon.accountSettings,
+      icon: AppIcon.settings,
       permissions: ['money:settings:read']
     }
   ];

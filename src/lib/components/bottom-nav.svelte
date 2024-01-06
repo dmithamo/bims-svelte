@@ -24,8 +24,8 @@
     {#each navItems as { path, label, icon } (path)}
       <a
         href={path}
-        class={clsx('text-base opacity-55', {
-          'font-bold text-orange-600 opacity-90': isActive(path)
+        class={clsx('opacity-55', {
+          'text-orange-600 opacity-90': isActive(path)
         })}
       >
         <Flex
@@ -34,7 +34,7 @@
           direction={DirectionOption.column}
         >
           <span class={clsx('iconify ', defaultIconSize)} data-icon={icon}></span>
-          <span class="text-md">{label}</span>
+          <span>{label}</span>
         </Flex>
       </a>
     {/each}

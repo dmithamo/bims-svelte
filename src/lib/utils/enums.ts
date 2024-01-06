@@ -38,5 +38,6 @@ export enum AppIcon {
   logout = 'uiw:logout',
   id = 'solar:user-id-outline',
   timelinesOverview = 'solar:calendar-outline',
-  assetsOverview = 'solar:safe-square-outline'
+  assetsOverview = 'solar:safe-square-outline',
+  settings = 'solar:settings-linear'
 }

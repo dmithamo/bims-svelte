@@ -21,7 +21,6 @@
 
   <div
     class={clsx('', {
-      'block sm:block': isDetailedView,
       'hidden sm:block': !isDetailedView
     })}
   >
@@ -31,11 +30,6 @@
         <span class={'capitalize'}>{sessionUser.role.name}</span>
         <span> &#8901; </span>
         <span class={''}>{sessionUser.account.name}</span>
-
-        {#if isDetailedView}
-          <span> &#8901; </span>
-          <span class={''}>{sessionUser.email}</span>
-        {/if}
       </div>
     </Flex>
   </div>
