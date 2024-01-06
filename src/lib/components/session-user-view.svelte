@@ -20,8 +20,9 @@
   {/if}
 
   <div
-    class={clsx('hidden lg:block', {
-      'block sm:block': isDetailedView
+    class={clsx('', {
+      'block sm:block': isDetailedView,
+      'hidden sm:block': !isDetailedView
     })}
   >
     <Flex direction={DirectionOption.column} gap={GapOption.none}>

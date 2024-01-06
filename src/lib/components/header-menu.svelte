@@ -7,7 +7,6 @@
     DirectionOption,
     GapOption,
     JustifyOption,
-    SpacingOption,
     WidthOption
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
@@ -21,7 +20,7 @@
 
   const topHeaderLinks: { path: AppRoute; label: string; icon: AppIcon }[] = [
     { path: AppRoute.profile, label: 'profile', icon: AppIcon.id },
-    { path: AppRoute.notifications, label: 'notifications', icon: AppIcon.notifications }
+    { path: AppRoute.account, label: 'account', icon: AppIcon.accountSettings }
   ];
 
   const showModal = () => {
@@ -36,21 +35,13 @@
 </span>
 
 {#if $page.state.showModal}
-  <div
-    class={clsx(
-      'absolute right-0 top-0',
-      'w-full sm:w-[25rem]',
-      'flex flex-col gap-6',
-      'bg-white p-8 shadow-md',
-      'z-10'
-    )}
+  <Flex
+    width={WidthOption.full}
+    gap={GapOption.large}
+    direction={DirectionOption.column}
+    extraClasses={clsx('absolute right-0 top-0', 'sm:w-[25rem]', 'bg-white p-8 shadow-md', 'z-10')}
   >
-    <Flex
-      align={AlignOption.center}
-      justify={JustifyOption.between}
-      marginY={SpacingOption.large}
-      width={WidthOption.full}
-    >
+    <Flex align={AlignOption.center} justify={JustifyOption.between} width={WidthOption.full}>
       <SessionUserView isDetailedView={true} {sessionUser} />
 
       <span role="button" on:click={() => history.back()}>
@@ -60,25 +51,25 @@
         />
       </span>
     </Flex>
-    <Flex direction={DirectionOption.column} gap={GapOption.medium} marginY={SpacingOption.large}>
+    <Flex width={WidthOption.full} direction={DirectionOption.column} gap={GapOption.large}>
       {#each allowedAppList as app (app.path)}
         <HeaderMenuItem path={app.path} label={app.name} icon={app.icon} />
       {/each}
     </Flex>
-
-    <hr class={'my-4'} />
-
-    <Flex direction={DirectionOption.column} gap={GapOption.medium} marginY={SpacingOption.large}>
+    <div class="divider" />
+    <Flex width={WidthOption.full} direction={DirectionOption.column} gap={GapOption.large}>
       {#each topHeaderLinks as headerLink (headerLink.path)}
         <HeaderMenuItem path={headerLink.path} label={headerLink.label} icon={headerLink.icon} />
       {/each}
     </Flex>
-
-    <hr class={'my-4'} />
-
-    <Flex direction={DirectionOption.column} gap={GapOption.large} marginY={SpacingOption.large}>
-      <HeaderMenuItem path={AppRoute.globalSettings} label={'settings'} icon={AppIcon.settings} />
+    <div class="divider" />
+    <Flex direction={DirectionOption.column} gap={GapOption.large}>
+      <HeaderMenuItem
+        path={AppRoute.notifications}
+        label={'notifications'}
+        icon={AppIcon.notifications}
+      />
       <HeaderMenuItem path={AppRoute.logout} label={'logout'} icon={AppIcon.logout} />
     </Flex>
-  </div>
+  </Flex>
 {/if}
