@@ -33,7 +33,7 @@
       <a
         href={navItem.path}
         class={clsx('opacity-55', {
-          'active border-none text-primary opacity-90': isActive(navItem)
+          'text-primary opacity-90': isActive(navItem)
         })}
       >
         <Flex
@@ -41,14 +41,14 @@
           justify={JustifyOption.around}
           direction={DirectionOption.column}
         >
-          {#if isActive(navItem)}
-            <span class={clsx('iconify ', defaultIconSize)} data-icon={navItem.iconActive} />
-          {/if}
-
-          {#if !isActive(navItem)}
-            <span class={clsx('iconify ', defaultIconSize)} data-icon={navItem.icon} />
-          {/if}
-
+          <span
+            class={clsx('iconify ', { hidden: !isActive(navItem) }, defaultIconSize)}
+            data-icon={navItem.iconActive}
+          />
+          <span
+            class={clsx('iconify ', { hidden: isActive(navItem) }, defaultIconSize)}
+            data-icon={navItem.icon}
+          />
           <span>{navItem.label}</span>
         </Flex>
       </a>
