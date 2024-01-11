@@ -13,13 +13,6 @@
 
   export let navItems: NavItem[] = [];
   $: isActive = (navItem: NavItem) => {
-    console.log({
-      path: navItem.path,
-      iA: pathIsActive({
-        path: navItem.path,
-        currentPath: $page.url.pathname
-      })
-    });
     return pathIsActive({
       path: navItem.path,
       currentPath: $page.url.pathname
@@ -42,11 +35,11 @@
           direction={DirectionOption.column}
         >
           <span
-            class={clsx('iconify ', { hidden: !isActive(navItem) }, defaultIconSize)}
+            class={clsx('iconify', { hidden: !isActive(navItem) }, defaultIconSize)}
             data-icon={navItem.iconActive}
           />
           <span
-            class={clsx('iconify ', { hidden: isActive(navItem) }, defaultIconSize)}
+            class={clsx('iconify', { hidden: isActive(navItem) }, defaultIconSize)}
             data-icon={navItem.icon}
           />
           <span>{navItem.label}</span>
