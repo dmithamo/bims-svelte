@@ -3,6 +3,7 @@ import { AppIcon, type AppRoute } from './enums';
 export type NavItem = {
   label: string;
   icon: AppIcon;
+  iconActive: AppIcon;
   path: AppRoute;
   permissions: string[];
 };

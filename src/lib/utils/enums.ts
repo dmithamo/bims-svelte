@@ -28,16 +28,26 @@ export enum AppErrorCode {
 
 export enum AppIcon {
   moneyOverview = 'solar:wallet-2-outline',
+  moneyOverviewActive = 'solar:wallet-2-bold',
   moneyBudget = 'solar:pie-chart-2-broken',
+  moneyBudgetActive = 'solar:pie-chart-2-bold',
   moneyTransactions = 'solar:card-transfer-outline',
+  moneyTransactionsActive = 'solar:card-transfer-bold',
   accountSettings = 'solar:shield-user-outline',
+  accountSettingsActive = 'solar:shield-user-bold',
   notifications = 'solar:bell-outline',
+  notificationsActive = 'solar:bell-bold',
   userAvatar = 'solar:user-circle-outline',
+  userAvatarActive = 'solar:user-circle-bold',
   close = 'carbon:close',
   login = 'uiw:login',
   logout = 'uiw:logout',
   id = 'solar:user-id-outline',
+  idActive = 'solar:user-id-bold',
   timelinesOverview = 'solar:calendar-outline',
+  timelinesOverviewActive = 'solar:calendar-bold',
   assetsOverview = 'solar:safe-square-outline',
-  settings = 'solar:settings-linear'
+  assetsOverviewActive = 'solar:safe-square-bold',
+  settings = 'solar:settings-linear',
+  settingsActive = 'solar:settings-bold'
 }

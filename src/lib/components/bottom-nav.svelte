@@ -12,20 +12,28 @@
   import { pathIsActive } from '$lib/utils/nav.utils';
 
   export let navItems: NavItem[] = [];
-  const isActive = (path: string) =>
-    pathIsActive({
-      path,
+  $: isActive = (navItem: NavItem) => {
+    console.log({
+      path: navItem.path,
+      iA: pathIsActive({
+        path: navItem.path,
+        currentPath: $page.url.pathname
+      })
+    });
+    return pathIsActive({
+      path: navItem.path,
       currentPath: $page.url.pathname
     });
+  };
 </script>
 
 {#if navItems.length > 0}
   <div class="btm-nav btm-nav-sm border-t">
-    {#each navItems as { path, label, icon } (path)}
+    {#each navItems as navItem (navItem.path)}
       <a
-        href={path}
+        href={navItem.path}
         class={clsx('opacity-55', {
-          'text-orange-600 opacity-90': isActive(path)
+          'active border-none text-primary opacity-90': isActive(navItem)
         })}
       >
         <Flex
@@ -33,8 +41,15 @@
           justify={JustifyOption.around}
           direction={DirectionOption.column}
         >
-          <span class={clsx('iconify ', defaultIconSize)} data-icon={icon}></span>
-          <span>{label}</span>
+          {#if isActive(navItem)}
+            <span class={clsx('iconify ', defaultIconSize)} data-icon={navItem.iconActive} />
+          {/if}
+
+          {#if !isActive(navItem)}
+            <span class={clsx('iconify ', defaultIconSize)} data-icon={navItem.icon} />
+          {/if}
+
+          <span>{navItem.label}</span>
         </Flex>
       </a>
     {/each}
