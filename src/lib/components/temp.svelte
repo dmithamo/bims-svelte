@@ -20,7 +20,7 @@
   width={WidthOption.full}
 >
   <Flex align={AlignOption.center} gap={GapOption.large}>
-    <span class="iconify h-32 w-32 text-gray-400" data-icon={AppIcon.worker}></span>
+    <span class="iconify h-32 w-32 text-gray-400" data-icon={AppIcon.worker} />
     <div>
       <p class="mb-4">We are hard at work building this page, and others just like it &trade;</p>
       <a class="underline underline-offset-4" href="/">Click here, in the meantime</a>

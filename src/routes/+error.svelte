@@ -24,12 +24,12 @@
     extraClasses="p-4 sm:p-6"
   >
     <Flex gap={GapOption.large} align={AlignOption.center}>
-      <span class="iconify h-32 w-32 text-gray-400" data-icon="tabler:error-404"></span>
+      <span class="iconify h-32 w-32 text-gray-400" data-icon="tabler:error-404" />
       <div>
         <p class="mb-4">Whatever you were looking for does not exist (yet, or any more) &trade;</p>
         <a
           href="#nowhere"
-          on:click={(e) => {
+          onclick={(e) => {
             e.preventDefault();
             history.back();
           }}
