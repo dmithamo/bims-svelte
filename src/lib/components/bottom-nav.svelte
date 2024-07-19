@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import type { NavItem } from '$lib/utils/bims.types';
+  import { isPathActive } from '$lib/utils/nav.utils';
   import {
     AlignOption,
     defaultIconSize,
@@ -9,7 +10,6 @@
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
   import Flex from './flex.svelte';
-  import { isPathActive } from '$lib/utils/nav.utils';
 
   export let navItems: NavItem[] = [];
   $: isActive = (navItem: NavItem) => {
@@ -26,7 +26,7 @@
       <a
         href={navItem.path}
         class={clsx('opacity-55', {
-          'text-primary opacity-90': isActive(navItem)
+          'text-orange-500 opacity-90': isActive(navItem)
         })}
       >
         <Flex

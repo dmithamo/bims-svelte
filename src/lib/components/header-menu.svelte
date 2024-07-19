@@ -39,7 +39,12 @@
     width={WidthOption.full}
     gap={GapOption.large}
     direction={DirectionOption.column}
-    extraClasses={clsx('absolute right-0 top-0', 'sm:w-[25rem]', 'bg-white p-8 shadow-md', 'z-10')}
+    extraClasses={clsx(
+      'absolute right-0 top-0',
+      'sm:w-[25rem]',
+      'menu bg-base-200 rounded-box p-8 shadow-md',
+      'z-10'
+    )}
   >
     <Flex align={AlignOption.center} justify={JustifyOption.between} width={WidthOption.full}>
       <SessionUserView isDetailedView={true} {sessionUser} />

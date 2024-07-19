@@ -1,10 +1,10 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+  import Flex from '$lib/components/flex.svelte';
   import { type AppIcon, AppRoute } from '$lib/utils/enums';
+  import { isPathActive } from '$lib/utils/nav.utils';
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-  import Flex from '$lib/components/flex.svelte';
-  import { isPathActive } from '$lib/utils/nav.utils';
-  import { page } from '$app/stores';
 
   export let icon: AppIcon;
   export let label: string;
@@ -16,7 +16,7 @@
     align={AlignOption.center}
     direction={DirectionOption.row}
     extraClasses={clsx({
-      'text-orange-600 font-bold': isPathActive({
+      'font-bold text-orange-500': isPathActive({
         path,
         currentPath: $page.url.pathname,
         exact: false

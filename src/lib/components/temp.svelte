@@ -1,6 +1,5 @@
 <script lang="ts">
   import Flex from '$lib/components/flex.svelte';
-  import Footer from '$lib/components/footer.svelte';
   import {
     AlignOption,
     DirectionOption,
@@ -27,5 +26,3 @@
     </div>
   </Flex>
 </Flex>
-
-<Footer />
