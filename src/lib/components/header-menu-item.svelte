@@ -9,9 +9,10 @@
   export let icon: AppIcon;
   export let label: string;
   export let path: AppRoute;
+  export let onClick: () => void = () => {};
 </script>
 
-<a href={path}>
+<a href={path} on:click={onClick}>
   <Flex
     align={AlignOption.center}
     direction={DirectionOption.row}
