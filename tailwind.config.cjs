@@ -22,7 +22,7 @@ const config = {
     require('@tailwindcss/aspect-ratio')
   ],
   daisyui: {
-    themes: ['night']
+    themes: ['light', 'night']
   }
 };
 

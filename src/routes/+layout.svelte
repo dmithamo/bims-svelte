@@ -5,15 +5,7 @@
   import { AppIcon, AppRoute } from '$lib/utils/enums';
   import { DirectionOption, HeightOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-  import { onMount } from 'svelte';
-  import { themeChange } from 'theme-change';
-  import '../app.pcss';
-
-  // NOTE: the element that is using one of the theme attributes must be in the DOM on mount
-  onMount(() => {
-    themeChange(false);
-    // 👆 false parameter is required for svelte
-  });
+  import '../app.css';
 
   const sessionUser: TSessionUser | null = {
     id: crypto.randomUUID(),
