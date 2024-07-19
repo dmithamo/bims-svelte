@@ -13,19 +13,35 @@
     WidthOption
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-
-  // 	Props
-  export let justify: JustifyOption = JustifyOption.start;
-  export let align: AlignOption = AlignOption.start;
-  export let direction: DirectionOption = DirectionOption.row;
-  export let width: WidthOption = WidthOption.default;
-  export let height: HeightOption = HeightOption.default;
-  export let paddingX: SpacingOption = SpacingOption.default;
-  export let paddingY: SpacingOption = SpacingOption.default;
-  export let marginX: SpacingOption = SpacingOption.default;
-  export let marginY: SpacingOption = SpacingOption.default;
-  export let gap: GapOption = GapOption.default;
-  export let extraClasses: string = '';
+  let {
+    justify = JustifyOption.start,
+    align = AlignOption.start,
+    direction = DirectionOption.row,
+    width = WidthOption.default,
+    height = HeightOption.default,
+    paddingX = SpacingOption.default,
+    paddingY = SpacingOption.default,
+    marginX = SpacingOption.default,
+    marginY = SpacingOption.default,
+    gap = GapOption.default,
+    extraClasses = '',
+    tag = 'div',
+    children
+  }: {
+    justify?: JustifyOption;
+    align?: AlignOption;
+    direction?: DirectionOption;
+    width?: WidthOption;
+    height?: HeightOption;
+    paddingX?: SpacingOption;
+    paddingY?: SpacingOption;
+    marginX?: SpacingOption;
+    marginY?: SpacingOption;
+    gap?: GapOption;
+    extraClasses?: string;
+    tag?: keyof HTMLElementTagNameMap;
+    children?: any;
+  } = $props();
 
   const alignMapping: Record<AlignOption, string> = {
     [AlignOption.start]: 'items-start',
@@ -74,8 +90,6 @@
   const paddingYClass = getPaddingYClass(paddingY ?? SpacingOption.default);
   const marginXClass = getPaddingXClass(marginX ?? SpacingOption.default);
   const marginYClass = getPaddingYClass(marginY ?? SpacingOption.default);
-  // eslint-disable-next-line no-undef
-  export let tag: keyof HTMLElementTagNameMap = 'div';
 </script>
 
 <svelte:element
@@ -95,5 +109,7 @@
     extraClasses // Figure out how to prevent this from being misused (e.g. 'flex flex-row h-12')
   )}
 >
-  <slot />
+  {#if children}
+    {@render children()}
+  {/if}
 </svelte:element>

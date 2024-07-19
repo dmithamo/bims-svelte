@@ -44,6 +44,8 @@
       permissions: ['assets:read']
     }
   ];
+
+  let { children }: { children?: any } = $props();
 </script>
 
 <Flex direction={DirectionOption.column} height={HeightOption.screen}>
@@ -52,6 +54,8 @@
   </div>
 
   <div class="relative w-full flex-1">
-    <slot />
+    {#if children}
+      {@render children()}
+    {/if}
   </div>
 </Flex>

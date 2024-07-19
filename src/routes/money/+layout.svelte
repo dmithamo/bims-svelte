@@ -34,7 +34,7 @@
     }
   ];
 
-  $: user = {
+  let user = {
     permissions: [
       'money:read',
       'money:budget:read',
@@ -43,11 +43,15 @@
     ]
   };
 
-  $: allowedSidebarItems = sidebarItems.filter(({ permissions }) =>
+  let allowedSidebarItems = sidebarItems.filter(({ permissions }) =>
     permissions.every((permission) => user.permissions.includes(permission))
   );
+
+  let { children }: { children?: any } = $props();
 </script>
 
 <BottomNav navItems={allowedSidebarItems} />
 
-<slot />
+{#if children}
+  {@render children()}
+{/if}

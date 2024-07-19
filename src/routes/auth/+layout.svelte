@@ -7,6 +7,7 @@
     JustifyOption,
     WidthOption
   } from '$lib/utils/styles.utils';
+  let { children }: { children?: any } = $props();
 </script>
 
 <Flex
@@ -16,7 +17,9 @@
   width={WidthOption.full}
   extraClasses="p-4 sm:p-6"
 >
-  <slot />
+  {#if children}
+    {@render children()}
+  {/if}
 </Flex>
 
 <Footer />

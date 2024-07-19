@@ -24,7 +24,7 @@
   ];
 
   let showModal: boolean = $state(false);
-  let dialog: unknown = $state();
+  let dialog: any = $state();
 
   $effect(() => {
     if (showModal && dialog) (dialog as HTMLDialogElement).showModal();
