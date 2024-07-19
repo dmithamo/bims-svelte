@@ -11,8 +11,9 @@
   import clsx from 'clsx';
   import Flex from './flex.svelte';
 
-  export let navItems: NavItem[] = [];
-  $: isActive = (navItem: NavItem) => {
+  let { navItems = [] }: { navItems: Array<NavItem> } = $props();
+
+  let isActive = (navItem: NavItem) => {
     return isPathActive({
       path: navItem.path,
       currentPath: $page.url.pathname

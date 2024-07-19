@@ -15,10 +15,10 @@
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
 
-  export let sessionUser: TSessionUser;
-  export let allowedAppList: TApp[] = [];
+  let { sessionUser, allowedAppList = [] }: { sessionUser: TSessionUser; allowedAppList: TApp[] } =
+    $props();
 
-  $: activeApp = allowedAppList.find((app) =>
+  let activeApp = allowedAppList.find((app) =>
     isPathActive({
       path: app.path,
       currentPath: $page.url.pathname,

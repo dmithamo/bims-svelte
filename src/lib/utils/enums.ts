@@ -49,5 +49,6 @@ export enum AppIcon {
   assetsOverview = 'solar:safe-square-outline',
   assetsOverviewActive = 'solar:safe-square-bold',
   settings = 'solar:settings-linear',
-  settingsActive = 'solar:settings-bold'
+  settingsActive = 'solar:settings-bold',
+  worker = 'icon-park-outline:worker'
 }

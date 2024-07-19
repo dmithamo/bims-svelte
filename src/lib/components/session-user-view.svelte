@@ -5,8 +5,10 @@
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
 
-  export let isDetailedView = false;
-  export let sessionUser: TSessionUser;
+  let {
+    isDetailedView = false,
+    sessionUser
+  }: { isDetailedView?: boolean; sessionUser: TSessionUser } = $props();
 </script>
 
 <Flex align={AlignOption.center} gap={GapOption.medium}>
@@ -16,7 +18,7 @@
       src={sessionUser.avatar}
       alt={sessionUser.name}
     />{:else}
-    <span class={clsx('iconify ', 'h-8 w-8 sm:h-10 sm:w-10')} data-icon={AppIcon.userAvatar} />
+    <span class={clsx('iconify ', 'h-8 w-8 sm:h-10 sm:w-10')} data-icon={AppIcon.worker} />
   {/if}
 
   <div

@@ -5,14 +5,15 @@
   import { isPathActive } from '$lib/utils/nav.utils';
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-
-  export let icon: AppIcon;
-  export let label: string;
-  export let path: AppRoute;
-  export let onClick: () => void = () => {};
+  let {
+    icon,
+    label,
+    path,
+    onClick = () => {}
+  }: { icon: AppIcon; label: string; path: AppRoute; onClick: () => void } = $props();
 </script>
 
-<a href={path} on:click={onClick}>
+<a href={path} onclick={onClick}>
   <Flex
     align={AlignOption.center}
     direction={DirectionOption.row}

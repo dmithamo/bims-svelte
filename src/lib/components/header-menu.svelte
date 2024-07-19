@@ -13,23 +13,27 @@
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
 
-  export let allowedAppList: TApp[] = [];
-  export let sessionUser: TSessionUser;
+  let {
+    allowedAppList = [],
+    sessionUser
+  }: { allowedAppList: Array<TApp>; sessionUser: TSessionUser } = $props();
 
   const topHeaderLinks: { path: AppRoute; label: string; icon: AppIcon }[] = [
     { path: AppRoute.profile, label: 'profile', icon: AppIcon.id },
     { path: AppRoute.account, label: 'account', icon: AppIcon.accountSettings }
   ];
 
-  let showModal: boolean = false;
-  let dialog: HTMLDialogElement;
+  let showModal: boolean = $state(false);
+  let dialog: unknown = $state();
 
-  $: if (showModal && dialog) dialog.showModal();
+  $effect(() => {
+    if (showModal && dialog) (dialog as HTMLDialogElement).showModal();
+  });
 
   const closeModal = () => (showModal = false);
 </script>
 
-<button class="focus:outline-none" tabindex="-1" on:click={() => (showModal = true)}>
+<button class="focus:outline-none" tabindex="-1" onclick={() => (showModal = true)}>
   <SessionUserView isDetailedView={false} {sessionUser} />
 </button>
 
@@ -42,13 +46,13 @@
       'z-10'
     )}
     bind:this={dialog}
-    on:close={closeModal}
+    onclose={closeModal}
   >
     <Flex width={WidthOption.full} gap={GapOption.large} direction={DirectionOption.column}>
       <Flex align={AlignOption.center} justify={JustifyOption.between} width={WidthOption.full}>
         <SessionUserView isDetailedView={true} {sessionUser} />
 
-        <button class="focus:outline-none" tabindex="-1" on:click={closeModal}>
+        <button class="focus:outline-none" tabindex="-1" onclick={closeModal}>
           <span
             class={clsx('iconify cursor-pointer', 'h-8 w-8 sm:h-10 sm:w-10')}
             data-icon={AppIcon.close}

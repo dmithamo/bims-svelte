@@ -3,15 +3,27 @@
   import { DirectionOption, GapOption, WidthOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
 
-  export let name: string = '';
-  export let type: string = 'text';
-  export let label: string = '';
-  export let error: string = '';
-  export let value: string = '';
-  export let onChange: (value: string) => void = () => {};
-  export let placeholder: string = '';
-  export let required: boolean = false;
-  export let disabled: boolean = false;
+  let {
+    name = '',
+    type = '',
+    label = '',
+    error = '',
+    value = '',
+    onChange = () => {},
+    placeholder = '',
+    required = false,
+    disabled = false
+  }: {
+    name?: string;
+    type?: string;
+    label?: string;
+    error?: string;
+    value?: string;
+    onChange?: (value: string) => void;
+    placeholder?: string;
+    required?: boolean;
+    disabled?: boolean;
+  } = $props();
 </script>
 
 <Flex direction={DirectionOption.column} gap={GapOption.none} width={WidthOption.full}>

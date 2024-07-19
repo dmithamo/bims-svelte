@@ -11,7 +11,6 @@
     id: crypto.randomUUID(),
     email: 'b@dmithamo.dev',
     name: 'B Mithamo',
-    avatar: '/homer-avatar.png',
     role: {
       id: crypto.randomUUID(),
       name: 'admin'

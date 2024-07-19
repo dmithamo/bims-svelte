@@ -1,9 +1,10 @@
 <script lang="ts">
   import { LogoSize } from '$lib/utils/enums';
   import clsx from 'clsx';
-
-  export let shouldClickToHome = true;
-  export let size: LogoSize = LogoSize.MEDIUM;
+  let {
+    shouldClickToHome = true,
+    size = LogoSize.MEDIUM
+  }: { shouldClickToHome?: boolean; size?: LogoSize } = $props();
 </script>
 
 <svelte:element
