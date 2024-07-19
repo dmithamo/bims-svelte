@@ -1,7 +1,7 @@
 <script lang="ts">
   import Flex from '$lib/components/flex.svelte';
   import Header from '$lib/components/header.svelte';
-  import type { App, SessionUser } from '$lib/utils/bims.types';
+  import type { TApp, TSessionUser } from '$lib/utils/bims.types';
   import { AppIcon, AppRoute } from '$lib/utils/enums';
   import { DirectionOption, HeightOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
@@ -15,11 +15,11 @@
     // 👆 false parameter is required for svelte
   });
 
-  const sessionUser: SessionUser | null = {
+  const sessionUser: TSessionUser | null = {
     id: crypto.randomUUID(),
     email: 'b@dmithamo.dev',
     name: 'B Mithamo',
-    // avatar: 'https://avatars.githubusercontent.com/u/1809239?v=4',
+    avatar: '/homer-avatar.png',
     role: {
       id: crypto.randomUUID(),
       name: 'admin'
@@ -30,7 +30,7 @@
     }
   };
 
-  const allowedAppList: App[] = [
+  const allowedAppList: TApp[] = [
     {
       id: crypto.randomUUID(),
       name: 'Money',

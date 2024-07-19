@@ -3,8 +3,8 @@
   import Flex from '$lib/components/flex.svelte';
   import HeaderMenu from '$lib/components/header-menu.svelte';
   import Logo from '$lib/components/logo.svelte';
-  import type { App, SessionUser } from '$lib/utils/bims.types';
-  import { pathIsActive } from '$lib/utils/nav.utils';
+  import type { TApp, TSessionUser } from '$lib/utils/bims.types';
+  import { isPathActive } from '$lib/utils/nav.utils';
   import {
     AlignOption,
     DirectionOption,
@@ -15,11 +15,11 @@
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
 
-  export let sessionUser: SessionUser;
-  export let allowedAppList: App[] = [];
+  export let sessionUser: TSessionUser;
+  export let allowedAppList: TApp[] = [];
 
   $: activeApp = allowedAppList.find((app) =>
-    pathIsActive({
+    isPathActive({
       path: app.path,
       currentPath: $page.url.pathname,
       exact: false
@@ -44,12 +44,12 @@
         justify={JustifyOption.start}
         extraClasses="font-bold"
       >
-        <span role="button" tabindex={0} on:click={() => history.back()}>
+        <button type="button" tabindex={0} on:click={() => history.back()}>
           <span
             class={clsx('iconify h-8 w-8 cursor-pointer')}
             data-icon={'solar:alt-arrow-left-outline'}
           />
-        </span>
+        </button>
 
         <span class="text-xl">{activeApp.name}</span>
       </Flex>

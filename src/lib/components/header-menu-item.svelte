@@ -3,7 +3,7 @@
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
   import Flex from '$lib/components/flex.svelte';
-  import { pathIsActive } from '$lib/utils/nav.utils';
+  import { isPathActive } from '$lib/utils/nav.utils';
   import { page } from '$app/stores';
 
   export let icon: AppIcon;
@@ -16,7 +16,7 @@
     align={AlignOption.center}
     direction={DirectionOption.row}
     extraClasses={clsx({
-      'text-orange-600 font-bold': pathIsActive({
+      'text-orange-600 font-bold': isPathActive({
         path,
         currentPath: $page.url.pathname,
         exact: false

@@ -26,9 +26,7 @@
     <Flex gap={GapOption.large} align={AlignOption.center}>
       <span class="iconify h-32 w-32 text-gray-400" data-icon="tabler:error-404"></span>
       <div>
-        <p class="mb-4 text-sm">
-          Whatever you were looking for does not exist (yet, or any more) &trade;
-        </p>
+        <p class="mb-4">Whatever you were looking for does not exist (yet, or any more) &trade;</p>
         <a
           href="#nowhere"
           on:click={(e) => {

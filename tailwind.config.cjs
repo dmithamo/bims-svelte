@@ -10,7 +10,7 @@ const config = {
         ops: ['Black Ops One', 'system-ui']
       },
       fontSize: {
-        base: '11px'
+        base: '13px'
       }
     }
   },

@@ -1,4 +1,4 @@
-export const pathIsActive = ({
+export const isPathActive = ({
   path,
   currentPath,
   exact = true

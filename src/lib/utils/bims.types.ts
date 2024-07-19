@@ -10,32 +10,32 @@ export type NavItem = {
 
 export type UUID = ReturnType<typeof crypto.randomUUID>;
 
-export type App = {
+export type TApp = {
   id: UUID;
   name: string;
   icon: AppIcon;
   path: AppRoute;
-  permissions: Permission[]; // Minimum permissions required to access the app's root route
+  permissions: TPermission[]; // Minimum permissions required to access the app's root route
   description?: string;
 };
 
-export type Permission = `${string}:${string}` | string;
-export type Role = {
+export type TPermission = `${string}:${string}` | string;
+export type TRole = {
   id: UUID;
   name: string;
-  permissions: Permission[];
+  permissions: TPermission[];
 };
 
-export type Account = {
+export type TAccount = {
   id: UUID;
   name: string;
 };
 
-export type SessionUser = {
+export type TSessionUser = {
   id: UUID;
   name: string;
   email: string;
-  account: Account;
+  account: TAccount;
   avatar?: string;
   role: {
     name: string;

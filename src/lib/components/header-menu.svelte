@@ -1,6 +1,10 @@
 <script lang="ts">
+  import { pushState } from '$app/navigation';
+  import { page } from '$app/stores';
   import Flex from '$lib/components/flex.svelte';
-  import type { App, SessionUser } from '$lib/utils/bims.types';
+  import HeaderMenuItem from '$lib/components/header-menu-item.svelte';
+  import SessionUserView from '$lib/components/session-user-view.svelte';
+  import type { TApp, TSessionUser } from '$lib/utils/bims.types';
   import { AppIcon, AppRoute } from '$lib/utils/enums';
   import {
     AlignOption,
@@ -10,13 +14,9 @@
     WidthOption
   } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-  import { page } from '$app/stores';
-  import SessionUserView from '$lib/components/session-user-view.svelte';
-  import HeaderMenuItem from '$lib/components/header-menu-item.svelte';
-  import { pushState } from '$app/navigation';
 
-  export let allowedAppList: App[] = [];
-  export let sessionUser: SessionUser;
+  export let allowedAppList: TApp[] = [];
+  export let sessionUser: TSessionUser;
 
   const topHeaderLinks: { path: AppRoute; label: string; icon: AppIcon }[] = [
     { path: AppRoute.profile, label: 'profile', icon: AppIcon.id },
@@ -30,9 +30,9 @@
   };
 </script>
 
-<span on:click={showModal} role="button" tabindex={0}>
+<button on:click={showModal} type="button" tabindex={0}>
   <SessionUserView isDetailedView={false} {sessionUser} />
-</span>
+</button>
 
 {#if $page.state.showModal}
   <Flex
@@ -44,12 +44,12 @@
     <Flex align={AlignOption.center} justify={JustifyOption.between} width={WidthOption.full}>
       <SessionUserView isDetailedView={true} {sessionUser} />
 
-      <span role="button" on:click={() => history.back()}>
+      <button type="button" on:click={() => history.back()}>
         <span
           class={clsx('iconify cursor-pointer', 'h-8 w-8 sm:h-10 sm:w-10')}
           data-icon={AppIcon.close}
         />
-      </span>
+      </button>
     </Flex>
     <Flex width={WidthOption.full} direction={DirectionOption.column} gap={GapOption.large}>
       {#each allowedAppList as app (app.path)}

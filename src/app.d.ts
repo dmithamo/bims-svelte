@@ -1,7 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 import type { AppErrorCode } from '$lib/utils/enums';
-import type { SessionUser } from '$lib/utils/bims.types';
+import type { TSessionUser } from '$lib/utils/bims.types';
 
 declare global {
   namespace App {
@@ -10,7 +10,7 @@ declare global {
     }
 
     interface Locals {
-      user: SessionUser;
+      user: TSessionUser;
     }
 
     // interface PageData {}

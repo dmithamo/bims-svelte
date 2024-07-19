@@ -1,18 +1,18 @@
 <script lang="ts">
-  import type { SessionUser } from '$lib/utils/bims.types';
+  import Flex from '$lib/components/flex.svelte';
+  import type { TSessionUser } from '$lib/utils/bims.types';
+  import { AppIcon } from '$lib/utils/enums';
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
-  import Flex from '$lib/components/flex.svelte';
-  import { AppIcon } from '$lib/utils/enums';
 
   export let isDetailedView = false;
-  export let sessionUser: SessionUser;
+  export let sessionUser: TSessionUser;
 </script>
 
-<Flex align={AlignOption.center} gap={GapOption.minimum}>
+<Flex align={AlignOption.center} gap={GapOption.medium}>
   {#if sessionUser.avatar}
     <img
-      class={clsx('h-8 w-8 rounded-full sm:h-10 sm:w-10')}
+      class={clsx('h-12 w-10 rounded-full sm:h-10 sm:w-10')}
       src={sessionUser.avatar}
       alt={sessionUser.name}
     />{:else}

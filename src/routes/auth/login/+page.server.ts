@@ -15,7 +15,7 @@ export const actions = {
       });
     }
 
-    cookies.set('sessionid', crypto.randomUUID(), {
+    cookies.set('sessionId', crypto.randomUUID(), {
       path: '/',
       httpOnly: true,
       maxAge: 60 * 60 * 24 * 7 // 1 week
