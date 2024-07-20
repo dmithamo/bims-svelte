@@ -24,16 +24,18 @@
   ];
 
   let showModal: boolean = $state(false);
-  let dialog: any = $state();
+  let dialog: unknown = $state();
 
   $effect(() => {
-    if (showModal && dialog) (dialog as HTMLDialogElement).showModal();
+    if (showModal && dialog) {
+      (dialog as HTMLDialogElement).showModal();
+    }
   });
 
   const closeModal = () => (showModal = false);
 </script>
 
-<button class="focus:outline-none" tabindex="-1" onclick={() => (showModal = true)}>
+<button class="focus:outline-none" onclick={() => (showModal = true)} tabindex="-1">
   <SessionUserView isDetailedView={false} {sessionUser} />
 </button>
 

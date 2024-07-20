@@ -1,7 +1,6 @@
 <script lang="ts">
   import Flex from '$lib/components/flex.svelte';
   import type { TSessionUser } from '$lib/utils/bims.types';
-  import { AppIcon } from '$lib/utils/enums';
   import { AlignOption, DirectionOption, GapOption } from '$lib/utils/styles.utils';
   import clsx from 'clsx';
 
@@ -18,7 +17,7 @@
       src={sessionUser.avatar}
       alt={sessionUser.name}
     />{:else}
-    <span class={clsx('iconify ', 'h-8 w-8 sm:h-10 sm:w-10')} data-icon={AppIcon.worker} />
+    <span class="iconify h-10 w-10 text-gray-900" data-icon={'icon-park-outline:worker'}></span>
   {/if}
 
   <div

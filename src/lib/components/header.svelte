@@ -44,11 +44,11 @@
         justify={JustifyOption.start}
         extraClasses="font-bold"
       >
-        <button type="button" tabindex={0} onclick={() => history.back()}>
+        <button type="button" onclick={() => history.back()}>
           <span
             class={clsx('iconify h-8 w-8 cursor-pointer')}
             data-icon={'solar:alt-arrow-left-outline'}
-          />
+          ></span>
         </button>
 
         <span class="text-xl">{activeApp.name}</span>

@@ -38,11 +38,11 @@
           <span
             class={clsx('iconify', { hidden: !isActive(navItem) }, defaultIconSize)}
             data-icon={navItem.iconActive}
-          />
+          ></span>
           <span
             class={clsx('iconify', { hidden: isActive(navItem) }, defaultIconSize)}
             data-icon={navItem.icon}
-          />
+          ></span>
           <span>{navItem.label}</span>
         </Flex>
       </a>
